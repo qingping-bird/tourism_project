@@ -1,0 +1,102 @@
+.login-background{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.315);
+}
+
+.login-content{
+    box-sizing: border-box;
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: -200px;
+    background-color: white;
+    padding: 50px;
+    box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.329);
+}
+
+.login-button-cancel{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 0;
+    right: 0;
+    margin-top: -25px;
+    margin-right: -25px;
+    background-color: rgb(83, 90, 72);
+    border: 3px solid white;
+    font-size: 40px; 
+    cursor: pointer;
+    color: white;
+}
+
+.login-button-cancel:hover{
+    background-color: white;
+    border: 3px solid rgb(83, 90, 72);
+    color: rgb(83, 90, 72);
+}
+
+.login-name,.login-code{
+    width: 100%;
+    margin-top: 10px;
+    box-sizing: border-box;
+    height: 30px;
+    padding: 5px;
+    position: relative;
+    border:1px solid rgb(189, 189, 189);
+    border-left: 6px solid rgb(196, 151, 69);
+    font-size: 13px;
+}
+
+.login-button-submit{
+    width: 180px;
+    margin: 0 0 20px -90px;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    height: 45px;
+    border: none;
+    background-color: rgb(83, 90, 72);
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    line-height: 45px;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 0 10px 2px rgba(83, 90, 72, 0.349);
+}
+
+.login-to-register{
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    font-size: 12px;
+    color: rgb(117, 117, 117);
+    text-decoration: underline;
+    user-select: none;
+    cursor: pointer;
+}
+
+.login-error{
+    color: rgb(156, 19, 19);
+    font-size: 12px;
+}
+
+.login-user-error{
+    position: absolute;
+    display: block;
+    width: 200px;
+    left: 50%;
+    margin-left: -100px;
+    bottom: 100px;
+    color: rgb(156, 19, 19);
+    font-size: 12px;
+    text-align: center;
+}

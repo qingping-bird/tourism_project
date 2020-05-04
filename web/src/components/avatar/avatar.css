@@ -1,0 +1,48 @@
+.user-left-touxiang{
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    border: 5px solid rgb(255, 255, 255);
+    box-sizing: border-box;
+    float: right;
+    padding: 5px;
+    box-shadow: 0 2px 8px 2px rgba(97, 97, 97, 0.288);
+}
+
+.base-upload-input,.img-container-avatar,.img-container{
+    display: block;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.base-upload-input{
+    opacity: 0;
+    z-index: 10;
+}
+
+.img-container-avatar-text{
+    position: absolute;
+    bottom: -35px;
+    height: 35px;
+    width: 70px;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.336);
+    color: rgba(255, 255, 255, 0.815);
+    line-height: 30px;
+    font-size: 12px;
+    text-align: center;
+    transition: bottom 0.3s;
+}
+
+.base-upload-input:hover +.img-container-avatar-text{
+    bottom: 0;
+}

@@ -1,0 +1,46 @@
+.navigation{
+    width:100%;
+    min-width: 1100px;
+    height: 80px;
+    background-color: rgb(83, 90, 72);
+}
+
+.navigation-body{
+    height: 100%;
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.logo{
+    position: relative;
+    float: left;
+    box-sizing: border-box;
+    height: 100%;
+    width: 150px;
+}
+
+.navigation-content{
+    margin-left: 200px;
+    height: 100%;
+    user-select:none;
+}
+
+.navigation-content-list{
+    display: inline-block;
+    line-height: 80px;
+    height: 80px;
+    display: inline-block;
+    width: 100px;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.navigation-content-list:hover{
+    background-color: rgb(240, 240, 240);
+    color: rgb(83, 90, 72);
+    font-weight: 600;
+}

@@ -1,0 +1,50 @@
+.navigation-user{
+    float: right;
+    position: relative;
+    text-align:center;
+}
+
+.user-head{
+    display: inline-block;
+    position: relative;
+    margin: 10px 15px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: rgb(219, 219, 219);
+    vertical-align: middle;
+    cursor: pointer;
+    background-size: auto 100%;
+    overflow: hidden;
+}
+
+
+.user-head-avatar{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.user-name{
+    display: inline-block;
+    position: relative;
+    margin: 0 5px;
+    color: white;
+    height: 80px;
+    width: 100px;
+    line-height: 80px;
+    text-decoration: underline;
+    vertical-align: middle;
+    font-size: 15px;
+    cursor: pointer;
+    user-select:none;
+    text-align: left;
+    overflow:hidden;
+    white-space:nowrap;
+    /* 禁止文字换行 */
+    text-overflow:ellipsis;
+    /* 当文本溢出时是否显示省略标记 */
+}
+

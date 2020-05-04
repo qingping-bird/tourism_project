@@ -1,0 +1,35 @@
+.upload-project-panel,.upload-project-content{
+    position: fixed;
+    width: 600px;
+    height: 400px;
+    background-color: white;
+    left: 50%;
+    top:50%;
+    margin-left: -300px;
+    margin-top: -200px;
+}
+
+.upload-project-background{
+    background-color: rgba(0, 0, 0, 0.219);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+}
+
+.upload-project-panel{
+    padding: 30px;
+    overflow:scroll;
+}
+
+.upload-project-cancel{
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    height: 25px;
+    font-size: 20px;
+    line-height: 25px;
+    width: 60px;
+    top: -25px;
+    right: 0;
+}

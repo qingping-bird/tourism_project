@@ -1,0 +1,13 @@
+.hotItem-content-item{
+    padding: 1px 2px;
+    box-sizing: border-box;
+    width:25%;
+    display: inline-block;
+}
+
+.hotItem-content-item-img{
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    background-color: #c0c0c0;
+}

@@ -1,0 +1,42 @@
+.user-login-in-panel{
+    width: 120px;
+    border-radius: 5px;
+    height: 70px;
+    background-color: white;
+    position: absolute;
+    right: 10px;
+    z-index: 10;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.096);
+    user-select: none;
+}
+
+.user-login-in-panel::before{
+    content: '';
+    display: block;
+    position: absolute;
+    transform:rotate(45deg);
+    top: -10px;
+    right: 80px;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    z-index: -1;
+}
+
+.user-login-panel-button{
+    cursor: pointer;
+    height: 30px;
+    line-height: 30px;
+    font-size: 13px;
+    text-decoration: none;
+    color: rgb(39, 39, 39);
+}
+
+.user-login-panel-link{
+    text-decoration: none;
+}
+
+.user-login-panel-button:hover{
+    font-weight: 700;
+    color: rgb(219, 174, 26);
+}
