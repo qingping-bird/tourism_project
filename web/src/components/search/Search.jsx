@@ -9,6 +9,12 @@ export default class Search extends React.Component{
         }
     }
 
+    componentWillMount(){
+        this.setState({
+            value:this.props.value?this.props.value:''
+        })
+    }
+
     handleChange=(e)=>{
         this.setState(
             {value:e.target.value}

@@ -1,0 +1,35 @@
+.book-list{
+    position: relative;
+    box-sizing: border-box;
+    margin-left: 320px;
+    width: 780px;
+}
+
+.book-list-choice{
+    margin-top: 20px;
+    width: 320px;
+    text-align: center;
+    border-radius: 15px;
+    border:5px solid rgb(240, 240, 240);
+    box-shadow: 2px 2px 5px 2px rgba(106, 110, 95, 0.5),
+    -2px -2px 5px 2px rgba(255, 255, 255, 0.911),
+    inset -2px -2px 5px 2px rgba(255, 255, 255, 0.918),
+    inset 2px 2px 5px 2px rgba(106, 110, 95, 0.5);
+    margin-bottom: 20px;
+    color: rgb(110, 110, 110);
+}
+
+.book-list-choice li{
+    display: inline-block;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;   
+    cursor: pointer;
+}
+
+.book-list-choice li:hover{
+    background-color: rgba(255, 255, 255, 0.418);
+}

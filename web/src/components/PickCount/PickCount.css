@@ -1,0 +1,35 @@
+.pick-count{
+    display: block;
+    margin-top: 5px;
+    height: 35px;
+}
+
+.pick-count-button,.pick-count-text{
+    display: inline-block;
+    width: 30px;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+    height: 30px;
+    background-color: rgb(219, 174, 26);
+    border: 1px solid rgb(219, 174, 26);
+    font-weight: 700;
+}
+
+.pick-count-button{
+    cursor: pointer;
+    user-select: none;
+}
+
+.pick-count-button:hover{
+    background-color: rgba(219, 174, 26, 0.87);
+    border: 1px solid rgba(219, 174, 26, 0.87);
+}
+
+.pick-count-text{
+    font-weight: 400;
+    color: rgb(75, 75, 75);
+    background-color: rgb(255, 255, 255);
+    width: 50px;
+}

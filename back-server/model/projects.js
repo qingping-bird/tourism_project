@@ -1,12 +1,14 @@
 const Sequelize = require("sequelize");
 const sequelize = require('../db');
+const Book = require('../model/books')
 
 const Project = sequelize.define('projects', {
-    project_id:{
+    id:{
         type: Sequelize.INTEGER, 
         primaryKey: true,
         allowNull: false,
-        autoIncrement: true
+        autoIncrement: true,
+        field: 'project_id'
     },
     project_sort: {
         type: Sequelize.STRING(100),
@@ -43,6 +45,11 @@ const Project = sequelize.define('projects', {
     project_count:{
         type: Sequelize.INTEGER,
         defaultValue: 0
+    },
+    project_active:{
+        type: Sequelize.BOOLEAN, 
+        allowNull: false, 
+        defaultValue: true
     }
 },
 {
@@ -53,9 +60,6 @@ const Project = sequelize.define('projects', {
 //freezeTableName,默认为true,会自动给表名表示为复数: user => users，为false则表示，使用我设置的表名
 
 
-//创建表，默认是false，true则是删除原有表，再创建
-Project.sync({
-    force: false
-})
+
 
 module.exports = Project;

@@ -1,0 +1,96 @@
+.project-detail{
+    width: 100%;
+    margin-top: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: white;
+}
+
+.project-de{
+    width: 1100px;
+    margin: 0 auto;
+    min-height: 600px;
+}
+
+
+.project-detail-img{
+    float: left;
+    width: 360px;
+    height: 240px;
+    margin-right: 20px;
+}
+
+.project-detail-content{
+    margin-left: 380px;
+}
+
+.project-detail-h1{
+    color: rgb(56, 56, 56);
+    font-size: 20px;
+    font-weight: 550;
+    display: block;
+    height: 80px;
+}
+
+.project-detail-money{
+    display: block;
+    height: 50px;
+    background-color: rgb(245, 245, 245);
+    font-size: 32px;
+    color: tomato;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.project-detail-p{
+    display: block;
+    height: 26px;
+    line-height: 26px;
+    font-size: 13px;
+}
+
+.project-detail-error{
+    font-size: 12px;
+    color: rgb(233, 53, 53);
+}
+
+.project-detail-submit{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
+    display: inline-block;
+    width: 220px;
+    height: 40px;
+    line-height:40px;
+    background-color: rgb(219, 174, 26);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.project-detail-submit:hover{
+    background-color: rgba(219, 174, 26, 0.788);
+}
+
+.project-detail-text{
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+}
+
+.project-detail-text-title{
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid rgb(196, 151, 69);
+    color:rgb(196, 151, 69);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.project-detail-text-txt{
+    font-size: 13px;
+    color: rgb(94, 94, 94);
+    line-height: 35px;
+}

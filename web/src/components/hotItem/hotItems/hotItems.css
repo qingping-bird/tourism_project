@@ -9,5 +9,69 @@
     width: 100%;
     height: 0;
     padding-bottom: 100%;
-    background-color: #c0c0c0;
+}
+
+.hotItem-content-item-img-i{
+    width: 100%;
+}
+
+.hotItem-content-item-img-con:hover .hotItem-content-item-img-i{
+    opacity: 0.7;
+}
+
+.hotItem-content-item-img-con{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: white;
+}
+
+.hotItem-content-item-img-d{
+    background-color: rgba(0, 0, 0, 0.459);
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    top: 100%;
+    margin-top:-80px;
+    color: white;
+    overflow: hidden;
+}
+
+.hotItem-content-item-img-t{
+    position: relative;
+    font-size: 22px;
+    font-weight: 700;
+    display: block;
+    height: 100%;
+    text-align: center;
+    line-height: 80px;
+    background-color: rgb(219, 174, 26);
+    width: 100px;
+    z-index: 1;
+    float: left;
+}
+
+.hotItem-content-item-img-t::before{
+    content: '';
+    display: block;
+    position: absolute;
+    transform:rotate(45deg);
+    top:20px;
+    right: -5px;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(219, 174, 26);
+    z-index: -2;
+}
+
+.hotItem-content-item-img-p{
+    font-size: 12px;
+    font-weight: 200;
+    display: inline-block;
+    padding: 12px;
+    height: 80px;
+    width: 160px;
+    box-sizing: border-box;
+    overflow: hidden;
 }

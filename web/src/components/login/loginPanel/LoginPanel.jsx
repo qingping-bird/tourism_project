@@ -56,7 +56,7 @@ export default class LoginPanel extends React.Component{
             if(!response.data.err){
                 _this.props.isLoginIn(response.data.userName,response.data.id,response.data.avatar);
                 if(_this.state.isRememberPassword)
-                setNewCookie(response.data.userName,_this.state.loginMessageCode);
+                setNewCookie(response.data.userName,_this.state.loginMessageCode,response.data.id);
             }
             else{
                 _this.setState(state => ({

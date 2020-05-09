@@ -1,0 +1,74 @@
+.login-back{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+}
+
+.login-content{
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-left:-200px;
+    margin-top:-220px;
+    text-align: center;
+    z-index: 10;
+}
+
+.login-logo{
+    width:250px;
+}
+
+.login-back:after{
+    content: '';
+    width: 1400px;
+    height: 1400px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-left:-700px;
+    margin-top:-1120px;
+    text-align: center;
+    display: block;
+    background-color:rgba(34, 38, 66, 0.774);
+    border-radius: 40%;
+    animation:myfirst 5s infinite;
+}
+
+.login-back:before{
+    content: '';
+    width: 1400px;
+    height: 1400px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-left:-700px;
+    margin-top:-1100px;
+    text-align: center;
+    display: block;
+    background-image: linear-gradient(rgba(164, 175, 160, 0.336), #eebb3185);
+    border-radius: 40%;
+    animation:my2 3s infinite;
+}
+
+
+
+@keyframes myfirst
+{
+    0%   {transform:rotate(0deg);}
+    25%  {transform:rotate(45deg);}
+    50%  {transform:rotate(180deg);}
+    100% {transform:rotate(360deg);}
+}
+
+
+@keyframes my2
+{
+    0%   {transform:rotate(45deg);}
+    25%  {transform:rotate(125deg);}
+    50%  {transform:rotate(230deg);}
+    100% {transform:rotate(-45deg);}
+}

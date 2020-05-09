@@ -5,17 +5,16 @@ const path = require('path')
 //     console.log(err);
 // })  跨磁盘操作不可
 
-projectImgUpload=async function(img,id){
+projectImgUpload=async function(img,id,url){
     let readStream=await fs.createReadStream(img.path);
     let newName=await img.originalFilename.replace(/^([^s]*)\./,id+".");
-    await checkFolder("D://imgDatabase");
-    await checkFolder("D://imgDatabase//projectImg");
-    let writeStream=await fs.createWriteStream('D://imgDatabase//projectImg//'+newName);
+    await checkFolder(url);
+    let writeStream=await fs.createWriteStream(url+newName);
     await readStream.pipe(writeStream);
     await readStream.on('end',function(){
     fs.unlinkSync(img.path);
     });
-    return 'imgDatabase//projectImg//'+newName;
+    return url+newName;
 }
 
 checkFolder=async function(folderName){

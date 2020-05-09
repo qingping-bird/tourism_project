@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ClassificationRegionList from './ClassificationRegionList/ClassificationRegionList';
 import './classification.css';
 
 export default class Classification  extends React.Component{
@@ -29,7 +28,7 @@ export default class Classification  extends React.Component{
 
   render(){
       const clickStyle={
-        backgroundColor: 'rgb(196, 151, 69)',
+        backgroundColor: 'rgb(219, 174, 26)',
         boxSizing: 'border-box',
         color: 'rgb(255, 255, 255)',
     }
@@ -41,10 +40,10 @@ export default class Classification  extends React.Component{
         <tbody>
             <tr>
                 <th><p>类 型</p></th>
-                <td><Link to="/tourism/0" className="classification-item"><p onClick={this.handleClick} data-value={0} data-name="sort" style={sort==0?clickStyle:{}}>全部</p></Link></td>
-                <td><Link to="/tourism/1" className="classification-item"><p onClick={this.handleClick} data-value={1} data-name="sort" style={sort==1?clickStyle:{}}>国内游</p></Link></td>
-                <td><Link to="/tourism/2" className="classification-item"><p onClick={this.handleClick} data-value={2} data-name="sort" style={sort==2?clickStyle:{}}>出境游</p></Link></td>
-                <td><Link to="/tourism/3" className="classification-item"><p onClick={this.handleClick} data-value={3} data-name="sort" style={sort==3?clickStyle:{}}>自由行</p></Link></td>
+                <td><Link to={{ pathname : `/tourism/0` , state : {userId:this.props.userId}}} className="classification-item"><p onClick={this.handleClick} data-value={0} data-name="sort" style={sort==0?clickStyle:{}}>全部</p></Link></td>
+                <td><Link to={{ pathname : `/tourism/1` , state : {userId:this.props.userId}}} className="classification-item"><p onClick={this.handleClick} data-value={1} data-name="sort" style={sort==1?clickStyle:{}}>国内游</p></Link></td>
+                <td><Link to={{ pathname : `/tourism/2` , state : {userId:this.props.userId}}} className="classification-item"><p onClick={this.handleClick} data-value={2} data-name="sort" style={sort==2?clickStyle:{}}>出境游</p></Link></td>
+                <td><Link to={{ pathname : `/tourism/3` , state : {userId:this.props.userId}}} className="classification-item"><p onClick={this.handleClick} data-value={3} data-name="sort" style={sort==3?clickStyle:{}}>自由行</p></Link></td>
             </tr>
             <tr>
                 <th><p>价 格</p></th>
@@ -68,13 +67,6 @@ export default class Classification  extends React.Component{
             </tr>
          </tbody>
         </table>
-        <div className="classification-region">
-            <span className="classification-region-head">热门地区</span>
-            <ClassificationRegionList />
-            <ClassificationRegionList />
-            <ClassificationRegionList />
-            <ClassificationRegionList />
-        </div>
         </div>
       );
   }

@@ -20,10 +20,10 @@ export default class Navigation extends React.Component{
                     signOut={this.props.signOut} isLogin={this.props.isLogin}/>
                     <div className="navigation-content">
                         <Link to="/home" className="navigation-content-list">首页</Link>
-                        <Link to="/tourism/1" className="navigation-content-list">国内旅游</Link>
-                        <Link to="/tourism/2" className="navigation-content-list">出境旅游</Link>
-                        <Link to="/tourism/3" className="navigation-content-list">自由行</Link>
-                        <Link to="/12" className="navigation-content-list">周边玩乐</Link>
+                        <Link to={{ pathname : `/tourism/1`}} className="navigation-content-list">国内旅游</Link>
+                        <Link to={{ pathname : `/tourism/2` }} className="navigation-content-list">出境旅游</Link>
+                        <Link to={{ pathname : `/tourism/3` }} className="navigation-content-list">自由行</Link>
+                        <Link to={{ pathname : `/tourism/4`}} className="navigation-content-list">周边玩乐</Link>
                     </div>
                 </div>
             </div>

@@ -1,11 +1,13 @@
-export function setNewCookie(userName,password){
+export function setNewCookie(userName,password,id){
     document.cookie ="userName="+userName+"; expires=Tue, 19 Jan 2038 03:14:07 GMT; path=/";
     document.cookie ="password="+password+"; expires=Tue, 19 Jan 2038 03:14:07 GMT; path=/";
+    document.cookie ="id="+id+"; expires=Tue, 19 Jan 2038 03:14:07 GMT; path=/";
 }
 
 export function deleteCookie(){
     document.cookie="userName=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     document.cookie="password=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    document.cookie="id=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
 }
 
 export function readCookie(itemName){

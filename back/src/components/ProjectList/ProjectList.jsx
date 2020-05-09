@@ -40,7 +40,7 @@ export default class ProjectList extends React.Component{
                 updateProjectList={this.props.updateProjectList}/>);
         }
         if(this.state.dataList.length==0){
-            items.push(<Empty style={{marginTop:'40px'}}/>);
+            items=<Empty style={{marginTop:'40px'}}/>;
         }
         return(
             <>{items}</>)}

@@ -1,5 +1,6 @@
 import React from 'react';
 import './avatar.css';
+import {handleImg} from '../../util/str'
 import ClassCropperModal from '../ClassCropperModal/ClassCropperModal'
 const MAX_FILE_SIZE = 5 * 1024 * 1024 ;
 
@@ -13,7 +14,7 @@ export default class UserMessage extends React.Component{
           }
     }
 
-    componentWillMount(){
+    componentWillMount(){ 
       this.setState({
         classResultImgUrl: (this.props.ID?this.props.ID:"default")+".jpg"
       })
@@ -60,7 +61,7 @@ export default class UserMessage extends React.Component{
                 {classResultImgUrl && (
                 <img
                     className="img-container-avatar"
-                    src={require("D://imgDatabase//userAvatar//"+(this.props.avatarImg?this.props.ID:"default")+".jpg")}
+                    src={require("D://imgDatabase//userAvatar//"+(this.props.avatarImg?handleImg(this.props.avatarImg):"default.jpg"))}
                 />
                 )}
                  <label className="base-upload-input">

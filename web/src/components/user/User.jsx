@@ -1,5 +1,6 @@
 import React from 'react';
 import UserPanel from './userPanel/UserPanel';
+import {handleImg} from '../../util/str'
 import './user.css';
 import { Link } from 'react-router-dom';
 
@@ -33,7 +34,7 @@ export default class User extends React.Component{
     }
 
     turnToUser=()=>{
-        let tem=(this.props.avatarImg?this.props.ID:"default")+".jpg";
+        let tem=this.props.avatarImg?handleImg(this.props.avatarImg):"default.jpg";
         let userHead=(
             <div className="user-head" style={{backgroundImage:`url(${"img/default.jpg"})` }} onClick={this.props.changeLoginClose}>
             <img className="user-head-avatar" src={require("D://imgDatabase//userAvatar//"+tem)} alt=""/>

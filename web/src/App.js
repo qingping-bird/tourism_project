@@ -81,6 +81,17 @@ class App extends React.Component{
     return ;
   }
 
+  redirect(){
+    if(!readCookie('id')){
+      return (<>
+      <Route path="/user" render={
+        ()=> (
+        <Redirect to="/"/>)}></Route>  
+      {/* 重定向，把 "/" 重定向到"/home" */}</>)
+    }
+    return
+  }
+
   render(){
     return (
       <Router className="App">
@@ -92,19 +103,17 @@ class App extends React.Component{
         signOut={this.signOut}/>
         <ScrollToTop><Switch>
           <Route path='/tourism/:sort' component={DomesticTourism} />
-          <Route path='/tourism' component={DomesticTourism} />
           <Route path='/projectDetail/:id' component={ProjectDetail} />
+
           <Route path='/user'><UserMessage 
           ID={this.state.ID}
           phone={this.state.phone}
           avatarImg={this.state.avatarImg}
           userName={this.state.userName}/></Route>
+          
           <Route path='/' component={Home} />
-          {/* <Route path="/" render={
-            ()=> (
-            <Redirect to="/home"/>)}></Route>  */}
-          {/* 重定向，把 "/" 重定向到"/home" */}
         
+          {this.redirect()}
         </Switch></ScrollToTop>
         {this.isLoginClose()}
         <Footer />

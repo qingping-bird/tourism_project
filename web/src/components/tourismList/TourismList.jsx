@@ -41,7 +41,7 @@ export default class TourismList extends React.Component{
         if(this.state.dataList)
         {let items = [];
         for (let i = 0; i <this.state.dataList.length; i++) {
-            items.push(<TourismListItem key={i} data={this.state.dataList[i]} 
+            items.push(<TourismListItem key={i} data={this.state.dataList[i]} userId={this.props.userId}
                 updateProjectList={this.props.updateProjectList}/>);
         }
         return(

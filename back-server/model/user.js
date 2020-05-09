@@ -1,12 +1,14 @@
 const Sequelize = require("sequelize");
 const sequelize = require('../db');
+const Book = require('../model/books')
 
 const User = sequelize.define('users', {
     id:{
         type: Sequelize.INTEGER, 
         primaryKey: true,
         allowNull: false,
-        autoIncrement: true
+        autoIncrement: true,
+        field: 'id'
     },
     username: {
         type: Sequelize.STRING(100),
@@ -35,9 +37,7 @@ const User = sequelize.define('users', {
 //freezeTableName,默认为true,会自动给表名表示为复数: user => users，为false则表示，使用我设置的表名
 
 
-//创建表，默认是false，true则是删除原有表，再创建
-User.sync({
-    force: false
-})
+
+
 
 module.exports = User;

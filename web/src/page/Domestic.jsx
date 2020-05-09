@@ -19,6 +19,7 @@ export default class DomesticTourism  extends React.Component{
   componentWillMount(){
     this.setState({
       sort:this.props.state.sort,
+      keyWord:this.props.keyWord?this.props.keyWord:''
     })
   }
 
@@ -43,9 +44,9 @@ export default class DomesticTourism  extends React.Component{
   render(){
       return(
         <>
-          <Search handleSearch={this.handleSearch}/>
+          <Search handleSearch={this.handleSearch} value={this.state.keyWord}/>
           <Classification handleClick={this.handleClick} state={this.state}/>
-          <TourismList key={this.state.tourKey} state={this.state}/>
+          <TourismList key={this.state.tourKey} state={this.state} userId={this.props.userId}/>
         </>
       );
   }

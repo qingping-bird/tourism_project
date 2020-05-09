@@ -9,9 +9,15 @@ const Sequelize = require('sequelize')
 
 const index = require('./routes/index')
 const users = require('./routes/users')
+const home = require('./routes/home')
+const admin = require('./routes/admin')
 const config = require('./db')
 const User =require('./model/user')
 const Project=require('./model/projects')
+const Book=require('./model/books')
+const Home=require('./model/home')
+const Admin=require('./model/admin')
+require('./model/index')
 
 // error handler
 onerror(app)
@@ -52,6 +58,8 @@ app.use(async (ctx, next) => {
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
+app.use(home.routes(), home.allowedMethods())
+app.use(admin.routes(), admin.allowedMethods())
 
 
 

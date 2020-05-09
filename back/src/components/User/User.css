@@ -1,0 +1,16 @@
+.user-div{
+    color: white;
+    float: right
+}
+
+.user-phone{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.user-logout{
+    display: inline-block;
+    margin-right: -10px;
+    cursor: pointer;
+    user-select: none;
+}

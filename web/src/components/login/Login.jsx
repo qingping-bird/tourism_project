@@ -43,7 +43,6 @@ export default class Login extends React.Component{
                     <button className="login-button-cancel" onClick={this.props.changeLoginClose}>×</button>
                     {this.changePanel()}
                 </div>
-                
             </div>
         );
     }

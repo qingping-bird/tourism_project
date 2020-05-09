@@ -3,6 +3,7 @@ import Search from '../components/search/Search';
 import Classification from '../components/classification/Classification';
 import TourismList from '../components/tourismList/TourismList';
 import Domestic from './Domestic'
+import Nearby from './Nearby'
 import './domesticTourism.css';
 
 export default class DomesticTourism  extends React.Component{
@@ -25,10 +26,19 @@ export default class DomesticTourism  extends React.Component{
     })
   }
 
+  showContent=()=>{
+    if(this.state.sort==4){
+      return(<><Nearby /></>)
+    }
+    return(<>
+    <Domestic keyWord={this.props.location.state?this.props.location.state.keyWord:''} key={this.state.sort} state={this.state}/>
+    </>)
+  }
+
   render(){
       return(
-        <div className="domestic-tourism-body">
-          <Domestic  key={this.state.sort} state={this.state}/>
+        <div className="domestic-tourism-body" style={{minHeight:'600px'}}>
+        {this.showContent()}
         </div>
       );
   }

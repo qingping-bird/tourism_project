@@ -9,7 +9,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <div style={{minWidth:'1000px'}}>
+  <div style={{minWidth:'1200px'}}>
   <ConfigProvider locale={zhCN}>
     <App />
   </ConfigProvider>
