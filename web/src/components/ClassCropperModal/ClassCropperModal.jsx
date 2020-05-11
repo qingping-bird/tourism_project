@@ -79,7 +79,7 @@ export default class ClassCropperModal extends Component {
   render() {
     return (
       <div className="class-cropper-modal">
-        <div className="modal-panel">
+        <div className="cropper-modal-panel">
           <div className="cropper-container-container">
             <div className="cropper-container">
               <Cropper

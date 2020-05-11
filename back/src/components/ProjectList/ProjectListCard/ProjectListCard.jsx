@@ -252,6 +252,7 @@ export default class ProjectListCard extends React.Component{
                 <Tag color="#f50">价格：{data.project_money}</Tag>
                 <Tag color="#2db7f5">时间：{data.project_start_time} -- {data.project_end_time}</Tag>
                 <Tag color="#87d068">天数：{data.project_day}</Tag>
+                <Tag color="#f50">销量：{data.project_count}</Tag>
                 </div>
             </Card>
             <Modal

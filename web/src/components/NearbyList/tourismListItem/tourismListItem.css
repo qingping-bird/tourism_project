@@ -26,6 +26,17 @@
     overflow:hidden;
     white-space:nowrap;
     text-overflow:ellipsis;
+    color: rgb(44, 44, 44);
+}
+
+.tourism-list-item-p{
+    margin-top: 5px;
+    font-size: 14px;
+    overflow:hidden;
+    font-weight: 200;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    color: rgb(138, 138, 138);
 }
 
 .tourism-list-item-sort{

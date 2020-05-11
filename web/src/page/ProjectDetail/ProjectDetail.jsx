@@ -5,7 +5,9 @@ import CommentItem from './CommentItem/CommentItem'
 import PickTime from '../../components/PickTime/PickTime'
 import PickCount from '../../components/PickCount/PickCount'
 import BookPanel from '../../components/BookPanel/BookPanel'
+import {readCookie} from '../../util/cookie'
 import {replaceStr} from '../../util/str'
+import Modal from '../../components/Modal/Modal'
 import './ProjectDetail.css'
 
 export default class ProjectDetail extends React.Component{
@@ -17,7 +19,8 @@ export default class ProjectDetail extends React.Component{
             timeError:false,
             count:1,
             bookTime:'',
-            bookPanel:false
+            bookPanel:false,
+            modalPanel:false
         }
     }
 
@@ -28,24 +31,44 @@ export default class ProjectDetail extends React.Component{
         }))
     }
 
-    handleCount=(num)=>{
+    handleCount=(num)=>{//选择人数
         this.setState(state=>({
             count:num
         }))
     }
 
-    handleSubmit=()=>{
-        if(this.state.count>0&&!this.state.timeError){
+    handleSubmit=()=>{ //预定面板
+        if(readCookie('id')){
+            if(this.state.count>0&&!this.state.timeError){
+                this.setState({
+                    bookPanel:true
+                })
+            }
+        }
+        else{
             this.setState({
-                bookPanel:true
+                modalPanel:true
             })
         }
     }
 
-    showBookPanel=()=>{
+    showBookPanel=()=>{//显示预定面板
         if(this.state.bookPanel){
             return <BookPanel time={this.state.bookTime} data={this.state.dataList} count={this.state.count} 
             close={()=>{this.setState({bookPanel:false})}}  project_id={this.state.id}/>
+        }
+        return 
+    }
+
+    modalClose=()=>{
+        this.setState({
+            modalPanel:false
+        })
+    }
+
+    showModalPanel=()=>{//显示提示面板
+        if(this.state.modalPanel){
+            return <Modal message='您还未登录，请先登录哦' close={this.modalClose} ok={this.modalClose}/>
         }
         return 
     }
@@ -58,8 +81,18 @@ export default class ProjectDetail extends React.Component{
                 if(data.books[i].book_comment){
                 item.push(<CommentItem key={i} book={data.books[i]}/>)}
             }
-            return(<>{item}</>)
-        }
+            if(item.length>0){
+                return(
+                    <>{item}</>)
+            }
+            else{
+                return(
+                    <><div className="empty-content">
+                        <img src={require("D:/imgDatabase/empty.png")}
+                         className="empty-img"/>
+                    </div></>
+                )
+            }}
         return
     }
 
@@ -124,6 +157,7 @@ export default class ProjectDetail extends React.Component{
                         {this.showComments()}
                     </div>
                     {this.showBookPanel()}
+                    {this.showModalPanel()}
                 </>
             )
         }

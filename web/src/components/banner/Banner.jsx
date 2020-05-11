@@ -94,7 +94,7 @@ export default class Navigation extends React.Component{
                    <input value={this.state.text} placeholder='输入关键字...' className="banner-search" type="text" onClick={this.prevent}
                     onChange={this.handleChange}/>
                    <Link to={{ pathname : `/tourism/0` , state : {keyWord:this.state.text}}} style={{textDecoration:'none'}}>
-                    <span className="banner-search-button"  >搜索</span>
+                    <span className="banner-search-button"  >搜索&nbsp;<span className="iconfont">&#xe603;</span></span>
                     </Link>
                 </div>
             

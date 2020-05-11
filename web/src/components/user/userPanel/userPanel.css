@@ -8,6 +8,7 @@
     z-index: 10;
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.096);
     user-select: none;
+    overflow: hidden;
 }
 
 .user-login-in-panel::before{
@@ -30,6 +31,7 @@
     font-size: 13px;
     text-decoration: none;
     color: rgb(39, 39, 39);
+    vertical-align: middle
 }
 
 .user-login-panel-link{

@@ -20,6 +20,7 @@ export default class TourismList extends React.Component{
         let _this=this;
         axios.get('http://localhost:4000/projectNearby',{
             params:{
+                offset:_this.props.state.offset-1,
                 order:_this.state.sort,
                 project_sort:4,
                 keyWord:_this.props.state.keyWord

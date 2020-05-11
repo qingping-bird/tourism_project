@@ -11,7 +11,7 @@
     z-index: 11;
 }
   
-.modal-panel {
+.cropper-modal-panel {
     width: 600px;
     height: 400px;
     background: white;

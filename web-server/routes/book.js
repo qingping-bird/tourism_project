@@ -9,19 +9,33 @@ const Op = Sequelize.Op
 router.get('/book', async (ctx, next) => {
   let data =await ctx.query;
   let {user_id,project_id,book_time,book_count}=data
+  console.log(data)
   await Book.create({
     userId:user_id,
     projectId:project_id,
     book_time:book_time,
     book_count:book_count
-    }).then(function(result){
-      ctx.body={
-        err:0
-      }
+    }).then(async function(result){
+        await Projects.findOne({
+            where:{id:project_id}
+        }).then(async function(result){
+            await Projects.update({project_count:result.project_count+(book_count-'0')},
+            {
+                where:{id:project_id}
+            }).then(async function(result){         
+                ctx.body={
+                    err:0
+                }
+            }).catch(function(err){
+                console.log(err)
+            })
+        }).catch(function(err){
+            console.log(err)
+        })
     }).catch(function(err){
         console.log(err)
-    ctx.body={
-      err:1
+        ctx.body={
+        err:1
     }
     })
 })
@@ -31,7 +45,9 @@ router.get('/booklist',async (ctx, next) => {
         {userId:await ctx.query.id},
         ctx.query.state==0?{}:{book_state:ctx.query.state-1});
     await Book.findAll({
-        order:[["bookId","DESC"]],
+        order:[["updatedAt","DESC"]],
+        limit:10,
+      offset:ctx.query.offset*10,
         where:obj,
         attributes:  { exclude: ['createdAt','updatedAt'] } ,
         include:[{
@@ -42,6 +58,22 @@ router.get('/booklist',async (ctx, next) => {
 
         ctx.body={
             data
+          }
+    }).catch(function(err){
+        console.log(err)
+    });
+})
+
+router.get('/countBook',async (ctx, next) => {
+    let obj=await Object.assign(
+        {userId:await ctx.query.id},
+        ctx.query.state==0?{}:{book_state:ctx.query.state-1});
+    await Book.count({
+        where:obj,
+        attributes:  { exclude: ['createdAt','updatedAt'] } 
+    }).then(function(data){
+        ctx.body={
+            count:data
           }
     }).catch(function(err){
         console.log(err)

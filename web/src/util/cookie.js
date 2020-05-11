@@ -1,7 +1,8 @@
-export function setNewCookie(userName,password,id){
-    document.cookie ="userName="+userName+"; expires=Tue, 19 Jan 2038 03:14:07 GMT; path=/";
-    document.cookie ="password="+password+"; expires=Tue, 19 Jan 2038 03:14:07 GMT; path=/";
-    document.cookie ="id="+id+"; expires=Tue, 19 Jan 2038 03:14:07 GMT; path=/";
+export function setNewCookie(userName,password,id,re){
+    let rem=re?"; expires=Tue, 19 Jan 2038 03:14:07 GMT; path=/":''
+    document.cookie ="userName="+userName+rem;
+    document.cookie ="password="+password+rem;
+    document.cookie ="id="+id+rem;
 }
 
 export function deleteCookie(){

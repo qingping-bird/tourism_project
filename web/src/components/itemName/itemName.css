@@ -9,6 +9,7 @@
 }
 
 .item-name h1{
+    display: inline-block;
     font-weight: 700;
     font-size: 32px;
     color: rgb(59, 59, 59);

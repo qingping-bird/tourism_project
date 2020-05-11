@@ -28,7 +28,7 @@ export default class HotItem extends React.Component{
     render(){
         return(
             <div className="hotItem">
-                <ItemName title="热门地区" detail="热门好玩儿的目的地"/>
+                <ItemName title="热门地区" detail="热门好玩儿的目的地" icon={(<>&#xe600;</>)}/>
                 <div className="hotItem-content">
                     {this.showItems()}
                 </div>

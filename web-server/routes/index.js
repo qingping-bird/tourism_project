@@ -115,6 +115,8 @@ router.get('/project', async (ctx, next) => {
 
     await Projects.findAll({
       order:[orders[order]],
+      limit:10,
+      offset:ctx.query.offset*10,
       attributes: { exclude: ['createdAt','updatedAt'] },
       where:obj
     }).then(function(result){
@@ -122,6 +124,27 @@ router.get('/project', async (ctx, next) => {
         data:result
       };
   })
+})
+
+router.get('/countProject', async (ctx, next) => {
+  const money=[{[Op.between]: [0, 499]},{[Op.between]: [500, 2000]},{[Op.between]: [2001,8000]},{[Op.gte]: 8001}];
+  const day=[1,2,3,4,5,6,7,{[Op.gt]: 7}]
+  let obj=await Object.assign(
+    {[Op.not]:[{project_sort:4}]},
+    {project_active:true},
+    ctx.query.project_sort==0?{}:{project_sort:ctx.query.project_sort}, 
+    ctx.query.project_money==0?{}:{project_money:money[ctx.query.project_money-1]},
+    ctx.query.project_day==0?{}:{project_day:day[ctx.query.project_day-1]}, 
+    !ctx.query.keyWord?{}:{project_name:{[Op.like]:`%${ctx.query.keyWord}%`}});
+
+  await Projects.count({
+    attributes: { exclude: ['createdAt','updatedAt'] },
+    where:obj
+  }).then(function(result){
+    ctx.body={
+      count:result
+    };
+})
 })
 
 router.get('/projectNearby', async (ctx, next) => {
@@ -134,12 +157,30 @@ router.get('/projectNearby', async (ctx, next) => {
     !ctx.query.keyWord?{}:{project_name:{[Op.like]:`%${ctx.query.keyWord}%`}});
 
   await Projects.findAll({
+    limit:10,
+    offset:ctx.query.offset*10,
     order:[orders[order]],
     attributes: { exclude: ['createdAt','updatedAt'] },
     where:obj
   }).then(function(result){
     ctx.body={
       data:result
+    };
+})
+})
+
+router.get('/countProjectNearby', async (ctx, next) => {
+  let obj=await Object.assign(
+    {project_sort:4},
+    {project_active:true},
+    !ctx.query.keyWord?{}:{project_name:{[Op.like]:`%${ctx.query.keyWord}%`}});
+
+  await Projects.count({
+    attributes: { exclude: ['createdAt','updatedAt'] },
+    where:obj
+  }).then(function(result){
+    ctx.body={
+      count:result
     };
 })
 })

@@ -1,6 +1,7 @@
 import React from 'react';
 import './tourismList.css';
 import axios from 'axios'
+import Pagination from '../Pagination/Pagination'
 import TourismListItem from './tourismListItem/TourismListItem';
 
 export default class TourismList extends React.Component{
@@ -8,7 +9,9 @@ export default class TourismList extends React.Component{
         super(props);
         this.state={
             sort:0,
-            dataList:null
+            dataList:null,
+            offset:1,
+            offsetKey:0
         }
     }
 
@@ -21,6 +24,7 @@ export default class TourismList extends React.Component{
         axios.get('http://localhost:4000/project',{
             params:{
                 order:_this.state.sort,
+                offset:_this.state.offset-1,
                 project_sort:_this.props.state.sort,
                 project_money:_this.props.state.money,
                 project_day:_this.props.state.day,
@@ -44,9 +48,19 @@ export default class TourismList extends React.Component{
             items.push(<TourismListItem key={i} data={this.state.dataList[i]} userId={this.props.userId}
                 updateProjectList={this.props.updateProjectList}/>);
         }
-        return(
-            <>{items}</>)}
-            return
+        if(items.length>0){
+            return(
+                <>{items}</>)
+        }
+        else{
+            return(
+                <><div className="empty-content">
+                    <img src={require("D:/imgDatabase/empty.png")}
+                     className="empty-img"/>
+                </div></>
+            )
+        }}
+        return
     }
 
     handleClick=async(e)=>{
@@ -54,9 +68,41 @@ export default class TourismList extends React.Component{
         let value=target.getAttribute("data-value"); //react获取自定义属性 https://blog.csdn.net/sinat_17775997/article/details/62215473
         let obj=target.getAttribute("data-name");
         await this.setState(state=>({
-            [obj]:value
+            [obj]:value,
+            offsetKey:!state.offsetKey,
+            offset:1
         }))
         this.sendRequest();
+    }
+
+    handleOffset=(offset)=>{
+        this.setState(state=>({
+          offset:offset,
+          tourKey:!state.tourKey
+        }))
+        this.sendRequest();
+      }
+    
+    countProject=(k)=>{//请求数据量
+    let _this=this;
+    axios.get('http://localhost:4000/countProject',{
+        params:
+            {
+                project_sort:_this.props.state.sort,
+                project_money:_this.props.state.money,
+                project_day:_this.props.state.day,
+                keyWord:_this.props.state.keyWord}
+    })
+    .then(function (response) {
+        k.setState({
+        total:response.data.count,
+        page:Math.ceil(response.data.count/10)
+        })
+        
+    })
+    .catch(function (error) {
+        console.log(error)
+    });
     }
 
   render(){
@@ -76,6 +122,7 @@ export default class TourismList extends React.Component{
                 <li onClick={this.handleClick} data-value={2} data-name="sort" style={sort==2?clickStyle:{}}>价格</li>
             </ul>
             {this.showProjects()}
+            <Pagination key={this.state.offsetKey} handleOffset={this.handleOffset} countProject={this.countProject}/>
         </>
     );
   }

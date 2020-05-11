@@ -22,7 +22,7 @@ export default class NearbyFun extends React.Component{
     render(){
         return(
             <div className="nearbyFun">
-                <ItemName title="周边玩乐" detail="台州市内的游乐场所"/>
+                <ItemName title="周边玩乐" detail="台州市内的游乐场所"  icon={(<>&#xe612;</>)}/>
                 <div className="nearbyFun-content">
                 {this.showList()}
                 </div>

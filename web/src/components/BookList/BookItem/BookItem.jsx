@@ -5,13 +5,15 @@ import { Link } from 'react-router-dom'
 import {handleImg} from '../../../util/str'
 import BookCommentPanel from './BookCommentPanel/BookCommentPanel'
 import './BookItem.css'
+import Modal from '../../Modal/Modal'
 import {getTime} from '../../../util/str'
 
 export default class BookItem extends React.Component{
     constructor(props){
         super(props)
         this.state={
-            bookCommentPanel:false
+            bookCommentPanel:false,
+            modalPanel:false
         }
     }
 
@@ -23,6 +25,18 @@ export default class BookItem extends React.Component{
 
     handleRefund=async (e)=>{
         e.preventDefault();
+        this.setState({
+            modalPanel:true
+        })
+    }
+
+    modalClose=()=>{
+        this.setState({
+            modalPanel:false
+        })
+    }
+
+    sendRequest=async ()=>{
         let _this=this;
         if(this.props.data.book_state==0){
             await axios.get('http://localhost:4000/booklistRefund',{
@@ -41,8 +55,14 @@ export default class BookItem extends React.Component{
                     console.log(error);
             });
         }
-        
+        this.modalClose()
         this.props.update()
+    }
+
+    showModalPanel=()=>{
+        if(this.state.modalPanel){
+            return <Modal message='确定提交退款吗' close={this.modalClose} ok={this.sendRequest}/>
+        }
     }
 
     handleComment=async (e)=>{
@@ -100,6 +120,7 @@ export default class BookItem extends React.Component{
             </div>
             </Link>
             {this.showCommentPanel()}
+            {this.showModalPanel()}
             </>
         )
     }

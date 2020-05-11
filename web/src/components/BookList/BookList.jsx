@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import BookItem from './BookItem/BookItem'
+import Pagination from '../Pagination/Pagination'
 import './BookList.css'
 
 export default class BookList extends React.Component{
@@ -8,7 +9,9 @@ export default class BookList extends React.Component{
         super(props)
         this.state={
             data:null,
-            sort:0
+            sort:0,
+            offset:1,
+            offKey:false
         }
     }
 
@@ -21,7 +24,8 @@ export default class BookList extends React.Component{
         axios.get('http://localhost:4000/booklist',{
             params:{
                 id:this.props.id,
-                state:this.state.sort
+                state:this.state.sort,
+                offset:_this.state.offset-1
             }
                 })
                 .then(function (response) {
@@ -34,13 +38,41 @@ export default class BookList extends React.Component{
             });
     }
 
+    countProject=(k)=>{
+        let _this=this;
+        axios.get('http://localhost:4000/countBook',{
+            params:{
+                id:this.props.id,
+                state:this.state.sort
+            }
+                })
+                .then(function (response) {
+                    k.setState({
+                        total:response.data.count,
+                        page:Math.ceil(response.data.count/10)
+                      })
+                })
+                .catch(function (error) {
+                    console.log(error);
+            });
+    }
+
     handleClick=async(e)=>{
         let target=e.target;
         let value=target.getAttribute("data-value"); //react获取自定义属性 https://blog.csdn.net/sinat_17775997/article/details/62215473
         let obj=target.getAttribute("data-name");
         await this.setState(state=>({
-            [obj]:value
+            [obj]:value,
+            offKey:!state.offKey,
+            offset:1
         }))
+        this.sendRequest();
+    }
+
+    handleOffset=(offset)=>{
+        this.setState({
+            offset:offset
+        })
         this.sendRequest();
     }
     
@@ -50,10 +82,18 @@ export default class BookList extends React.Component{
             for(let i=0;i<this.state.data.length;i++){
                 items.push(<BookItem key={i} data={this.state.data[i]} update={this.sendRequest}/>)
             }
-            return( <>
-                {items}
-                </>)
-        }
+            if(items.length>0){
+                return(
+                    <>{items}</>)
+            }
+            else{
+                return(
+                    <><div className="empty-content">
+                        <img src={require("D:/imgDatabase/empty.png")}
+                         className="empty-img"/>
+                    </div></>
+                )
+            }}
         else return
     }
 
@@ -75,6 +115,7 @@ export default class BookList extends React.Component{
                     <li onClick={this.handleClick} data-value={3} data-name="sort" style={sort==3?clickStyle:{}}>已退款</li>
                 </ul>
                 {this.showItemList()}
+                <Pagination key={this.state.offKey} handleOffset={this.handleOffset} countProject={this.countProject} />
             </div>
         )
     }

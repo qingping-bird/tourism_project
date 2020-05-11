@@ -11,9 +11,13 @@ export default class UserPanel extends React.Component{
         return(
             <div className="user-login-in-panel"
             onMouseEnter={this.props.onMouseOver} onMouseLeave={this.props.onMouseOut} >
-            <Link to="/user" className="user-login-panel-link"> <div className="user-login-panel-button">个人中心</div></Link>
+            <Link to="/user" className="user-login-panel-link"> <div className="user-login-panel-button">
+            <span className="iconfont user-login-panel-link-i" style={{fontSize: "20px"}}>&#xe6a0;</span>
+            &nbsp;&nbsp;个人中心</div></Link>
             <Link to="/" onClick={this.props.signOut} className="user-login-panel-link">
-            <div className="user-login-panel-button">退出登录</div>
+            <div className="user-login-panel-button">
+            <span className="iconfont user-login-panel-link-i" style={{fontSize: "20px"}}>&#xe6db;</span>
+            &nbsp;&nbsp;退出登录</div>
             </Link>
             </div>
         );

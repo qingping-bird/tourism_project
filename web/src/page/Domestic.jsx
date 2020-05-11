@@ -1,7 +1,9 @@
 import React from 'react';
+import axios from 'axios'
 import Search from '../components/search/Search';
 import Classification from '../components/classification/Classification';
 import TourismList from '../components/tourismList/TourismList';
+import Pagination from '../components/Pagination/Pagination'
 import './domesticTourism.css';
 
 export default class DomesticTourism  extends React.Component{
@@ -12,12 +14,13 @@ export default class DomesticTourism  extends React.Component{
       money:0,
       day:0,
       keyWord:'',
-      tourKey:false
+      tourKey:false,
     }
   }
 
   componentWillMount(){
     this.setState({
+      offset:1,
       sort:this.props.state.sort,
       keyWord:this.props.keyWord?this.props.keyWord:''
     })
@@ -47,6 +50,7 @@ export default class DomesticTourism  extends React.Component{
           <Search handleSearch={this.handleSearch} value={this.state.keyWord}/>
           <Classification handleClick={this.handleClick} state={this.state}/>
           <TourismList key={this.state.tourKey} state={this.state} userId={this.props.userId}/>
+          
         </>
       );
   }

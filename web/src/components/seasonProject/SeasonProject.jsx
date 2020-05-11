@@ -49,7 +49,7 @@ export default class HotItem extends React.Component{
 
         return(
             <div className="seasonProject">
-                <ItemName title="当季项目" detail="推荐当季的实惠套餐"/>
+                <ItemName title="当季项目" detail="推荐当季的实惠套餐" icon={(<>&#xe610;</>)}/>
                 <ul className="seasonProject-choice">
                     <li onClick={this.handleClick} data-value={1} style={sort==1?clickStyle:{}}>国内旅游</li>
                     <li onClick={this.handleClick} data-value={2} style={sort==2?clickStyle:{}}>出境旅游</li>
